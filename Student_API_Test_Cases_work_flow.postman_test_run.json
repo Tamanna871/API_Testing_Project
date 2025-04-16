@@ -1,0 +1,393 @@
+{
+	"id": "0f2cf402-92bd-448e-b0c2-f8e516fc1861",
+	"name": "Student_API_Test_Cases_work_flow",
+	"timestamp": "2025-04-14T16:41:02.585Z",
+	"collection_id": "40840475-fd5ffc9f-dd9c-4bc1-92e1-06407a6db683",
+	"folder_id": 0,
+	"environment_id": "40840475-b5e0be6f-c758-4aba-8591-f55d5e8420e6",
+	"totalPass": 81,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-04-14T16:41:00.442Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "f9686b63-78a6-4765-8447-14a178ba7a0c",
+			"name": "Get single student data",
+			"url": "http://localhost:3000/students/3",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status code is 200": true,
+				"Content-Type header is present": true,
+				"Content-Type header is application/json": true,
+				"Response time is less than 200ms": true,
+				"Schema is valid": true,
+				"Test data type of the response": true
+			},
+			"testPassFailCounts": {
+				"status code is 200": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Content-Type header is present": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Test data type of the response": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				7,
+				4,
+				3
+			],
+			"allTests": [
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true,
+					"Test data type of the response": true
+				},
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true,
+					"Test data type of the response": true
+				},
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true,
+					"Test data type of the response": true
+				}
+			]
+		},
+		{
+			"id": "4c415cbd-faed-4793-a08c-4d62da79c9cc",
+			"name": "Get all students data",
+			"url": "http://localhost:3000/students",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status code is 200": true,
+				"Content-Type header is present": true,
+				"Content-Type header is application/json": true,
+				"Response time is less than 200ms": true,
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"status code is 200": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Content-Type header is present": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				3,
+				3,
+				3
+			],
+			"allTests": [
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true
+				},
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true
+				},
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true
+				}
+			]
+		},
+		{
+			"id": "43516075-8902-4e5c-8f4d-edff34777a29",
+			"name": "Create new student",
+			"url": "http://localhost:3000/students",
+			"time": 7,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"status code is 201": true,
+				"Content-Type header is present": true,
+				"Content-Type header is application/json": true,
+				"Response time is less than 200ms": true,
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"status code is 201": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Content-Type header is present": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				6,
+				7,
+				7
+			],
+			"allTests": [
+				{
+					"status code is 201": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true
+				},
+				{
+					"status code is 201": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true
+				},
+				{
+					"status code is 201": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true
+				}
+			]
+		},
+		{
+			"id": "04c0dfa4-662b-4ed9-9829-6c50c3399e4d",
+			"name": "Update student",
+			"url": "http://localhost:3000/students/98df",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status code is 200": true,
+				"Content-Type header is present": true,
+				"Content-Type header is application/json": true,
+				"Response time is less than 200ms": true,
+				"id value of json field": true,
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"status code is 200": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Content-Type header is present": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 3,
+					"fail": 0
+				},
+				"id value of json field": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				6,
+				7,
+				6
+			],
+			"allTests": [
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"id value of json field": true,
+					"Schema is valid": true
+				},
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"id value of json field": true,
+					"Schema is valid": true
+				},
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"id value of json field": true,
+					"Schema is valid": true
+				}
+			]
+		},
+		{
+			"id": "0c4d7956-1b76-4d81-ae36-5697aa067692",
+			"name": "Delete Student",
+			"url": "http://localhost:3000/students/98df",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"status code is 200": true,
+				"Content-Type header is present": true,
+				"Content-Type header is application/json": true,
+				"Response time is less than 200ms": true,
+				"Schema is valid": true
+			},
+			"testPassFailCounts": {
+				"status code is 200": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Content-Type header is present": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Response time is less than 200ms": {
+					"pass": 3,
+					"fail": 0
+				},
+				"Schema is valid": {
+					"pass": 3,
+					"fail": 0
+				}
+			},
+			"times": [
+				12,
+				6,
+				6
+			],
+			"allTests": [
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true
+				},
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true
+				},
+				{
+					"status code is 200": true,
+					"Content-Type header is present": true,
+					"Content-Type header is application/json": true,
+					"Response time is less than 200ms": true,
+					"Schema is valid": true
+				}
+			]
+		}
+	],
+	"count": 3,
+	"totalTime": 86,
+	"collection": {
+		"requests": [
+			{
+				"id": "f9686b63-78a6-4765-8447-14a178ba7a0c",
+				"method": "GET"
+			},
+			{
+				"id": "4c415cbd-faed-4793-a08c-4d62da79c9cc",
+				"method": "GET"
+			},
+			{
+				"id": "43516075-8902-4e5c-8f4d-edff34777a29",
+				"method": "POST"
+			},
+			{
+				"id": "04c0dfa4-662b-4ed9-9829-6c50c3399e4d",
+				"method": "PUT"
+			},
+			{
+				"id": "0c4d7956-1b76-4d81-ae36-5697aa067692",
+				"method": "DELETE"
+			}
+		]
+	}
+}

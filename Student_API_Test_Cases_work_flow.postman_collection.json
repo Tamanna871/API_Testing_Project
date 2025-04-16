@@ -1,0 +1,536 @@
+{
+	"info": {
+		"_postman_id": "fd5ffc9f-dd9c-4bc1-92e1-06407a6db683",
+		"name": "Student_API_Test_Cases_work_flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40840475"
+	},
+	"item": [
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "Get single student data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is 200\", ()=>{\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is present\", ()=>{\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", ()=>{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", ()=>{\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"const schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"  \"title\": \"Generated schema for Root\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"location\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"phone\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"courses\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": {\r",
+									"        \"type\": \"string\"\r",
+									"      }\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"id\",\r",
+									"    \"name\",\r",
+									"    \"location\",\r",
+									"    \"phone\",\r",
+									"    \"courses\"\r",
+									"  ]\r",
+									"};\r",
+									"\r",
+									"pm.test(\"Schema is valid\", ()=>{\r",
+									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Test data type of the response\", ()=>{\r",
+									"    pm.expect(jsonData).to.be.an(\"object\");\r",
+									"    pm.expect(jsonData.id).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.name).to.be.a(\"string\");\r",
+									"    pm.expect(jsonData.courses).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"if(jsonData.id === \"1\"){\r",
+									"\r",
+									"    pm.test(\"Test array properties\", ()=>{\r",
+									"        pm.expect(jsonData.courses).to.include(\"JAVA\");\r",
+									"        pm.expect(jsonData.courses).to.have.members([\"JAVA\", \"Selenium\"])\r",
+									"    })\r",
+									"\r",
+									"    pm.test(\"field's value validation\", ()=>{\r",
+									"  \r",
+									"        pm.expect(jsonData.name).to.eql(\"John\");\r",
+									"        pm.expect(jsonData.location).to.eql(\"France\");\r",
+									"        pm.expect(jsonData.phone).to.eql(\"123456789\");\r",
+									"        pm.expect(jsonData.courses[0]).to.eql(\"JAVA\");\r",
+									"        pm.expect(jsonData.courses[1]).to.eql(\"Selenium\");\r",
+									"    });\r",
+									"\r",
+									"}\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{id}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all students data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is 200\", ()=>{\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type header is present\", ()=>{\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", ()=>{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", ()=>{\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"})\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"const schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"  \"title\": \"Generated schema for Root\",\r",
+									"  \"type\": \"array\",\r",
+									"  \"items\": {\r",
+									"    \"type\": \"object\",\r",
+									"    \"properties\": {\r",
+									"      \"id\": {\r",
+									"        \"type\": \"string\"\r",
+									"      },\r",
+									"      \"name\": {\r",
+									"        \"type\": \"string\"\r",
+									"      },\r",
+									"      \"location\": {\r",
+									"        \"type\": \"string\"\r",
+									"      },\r",
+									"      \"phone\": {\r",
+									"        \"type\": \"string\"\r",
+									"      },\r",
+									"      \"courses\": {\r",
+									"        \"type\": \"array\",\r",
+									"        \"items\": {\r",
+									"          \"type\": \"string\"\r",
+									"        }\r",
+									"      }\r",
+									"    },\r",
+									"    \"required\": [\r",
+									"      \"id\",\r",
+									"      \"name\",\r",
+									"      \"location\",\r",
+									"      \"phone\",\r",
+									"      \"courses\"\r",
+									"    ]\r",
+									"  }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema is valid\", ()=>{\r",
+									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}",
+							"host": [
+								"{{baseUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is 201\", ()=>{\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type header is present\", ()=>{\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", ()=>{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", ()=>{\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"})\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.environment.set(\"idFromResponse\", jsonData.id)\r",
+									"\r",
+									"const schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"  \"title\": \"Generated schema for Root\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"location\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"phone\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"courses\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": {\r",
+									"        \"type\": \"string\"\r",
+									"      }\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"id\",\r",
+									"    \"name\",\r",
+									"    \"location\",\r",
+									"    \"phone\",\r",
+									"    \"courses\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema is valid\", ()=>{\r",
+									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var random = Math.random().toString(36).substring(2);\r",
+									"var userName = \"Jim\" + random;\r",
+									"\r",
+									"pm.variables.set(\"userName\",userName);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"{{userName}}\",\n    \"location\": \"France\",\n    \"phone\": \"123456\",\n    \"courses\": [\n        \"C\",\n        \"C++\"\n     ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}",
+							"host": [
+								"{{baseUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is 200\", ()=>{\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type header is present\", ()=>{\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", ()=>{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", ()=>{\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"})\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"id value of json field\", ()=>{\r",
+									"    pm.expect(jsonData.id).to.eql(pm.environment.get(\"idFromResponse\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"const schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"  \"title\": \"Generated schema for Root\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"location\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"phone\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"courses\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": {\r",
+									"        \"type\": \"string\"\r",
+									"      }\r",
+									"    },\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"name\",\r",
+									"    \"location\",\r",
+									"    \"phone\",\r",
+									"    \"courses\",\r",
+									"    \"id\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema is valid\", ()=>{\r",
+									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Scott\",\n    \"location\": \"Germany\",\n    \"phone\": \"654321\",\n    \"courses\": [\n        \"C\",\n        \"C++\"\n     ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{idFromResponse}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{idFromResponse}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"status code is 200\", ()=>{\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Content-Type header is present\", ()=>{\r",
+									"    pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", ()=>{\r",
+									"    pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+									"})\r",
+									"\r",
+									"pm.test(\"Response time is less than 200ms\", ()=>{\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"})\r",
+									"\r",
+									"const jsonData = pm.response.json();\r",
+									"\r",
+									"const schema = {\r",
+									"  \"$schema\": \"http://json-schema.org/draft-07/schema#\",\r",
+									"  \"title\": \"Generated schema for Root\",\r",
+									"  \"type\": \"object\",\r",
+									"  \"properties\": {\r",
+									"    \"name\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"location\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"phone\": {\r",
+									"      \"type\": \"string\"\r",
+									"    },\r",
+									"    \"courses\": {\r",
+									"      \"type\": \"array\",\r",
+									"      \"items\": {\r",
+									"        \"type\": \"string\"\r",
+									"      }\r",
+									"    },\r",
+									"    \"id\": {\r",
+									"      \"type\": \"string\"\r",
+									"    }\r",
+									"  },\r",
+									"  \"required\": [\r",
+									"    \"name\",\r",
+									"    \"location\",\r",
+									"    \"phone\",\r",
+									"    \"courses\",\r",
+									"    \"id\"\r",
+									"  ]\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Schema is valid\", ()=>{\r",
+									"    pm.expect(tv4.validate(jsonData, schema)).to.be.true;\r",
+									"})\r",
+									"\r",
+									"pm.environment.unset(\"idFromResponse\");\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{idFromResponse}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{idFromResponse}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000/students",
+			"type": "string"
+		}
+	]
+}
