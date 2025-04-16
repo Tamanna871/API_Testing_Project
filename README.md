@@ -35,7 +35,7 @@ newman run Student_API_Test_Cases_work_flow.postman_collection.json --iteration-
 ### 6. **Run Collection Remotely via URL**
 - Open a terminal in the API_Testing_Project folder (the one you just cloned from GitHub), then run:
 ```bash
-newman run "https://api.postman.com/collections/40840475-fd5ffc9f-dd9c-4bc1-92e1-06407a6db683?access_key=PMAT-01JRX3YTCHW7AHFKZ8F1ZJB7ET" --iteration-data students_id.csv
+newman run "https://api.postman.com/collections/<collection-id>?access_key=<your-access-key>" --iteration-data students_id.csv
 ```
 
 
@@ -207,20 +207,19 @@ newman run Student_API_Test_Cases_work_flow.postman_collection.json --iteration-
 
 #### URL:
 
-```bash
-https://api.postman.com/collections/40840475-fd5ffc9f-dd9c-4bc1-92e1-06407a6db683?access_key=PMAT-01JRX3YTCHW7AHFKZ8F1ZJB7ET
+```bash"https://api.postman.com/collections/<collection-id>?access_key=<your-access-key>"
 ```
 
 #### Run from terminal:
 
 ```bash
-newman run "https://api.postman.com/collections/40840475-fd5ffc9f-dd9c-4bc1-92e1-06407a6db683?access_key=PMAT-01JRX3YTCHW7AHFKZ8F1ZJB7ET" --iteration-data students_id.csv
+newman run "https://api.postman.com/collections/<collection-id>?access_key=<your-access-key>" --iteration-data students_id.csv
 ```
 
 #### Generate HTML Report:
 
 ```bash
-newman run "https://api.postman.com/collections/40840475-fd5ffc9f-dd9c-4bc1-92e1-06407a6db683?access_key=PMAT-01JRX3YTCHW7AHFKZ8F1ZJB7ET" --iteration-data students_id.csv -r html
+newman run "https://api.postman.com/collections/<collection-id>?access_key=<your-access-key>" --iteration-data students_id.csv -r html
 ```
 
 > Saved in the `newman` folder
