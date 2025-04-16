@@ -207,7 +207,8 @@ newman run Student_API_Test_Cases_work_flow.postman_collection.json --iteration-
 
 #### URL:
 
-```bash"https://api.postman.com/collections/<collection-id>?access_key=<your-access-key>"
+```bash
+https://api.postman.com/collections/<collection-id>?access_key=<your-access-key>
 ```
 
 #### Run from terminal:
