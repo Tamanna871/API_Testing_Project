@@ -41,7 +41,7 @@ newman run "https://api.postman.com/collections/<collection-id>?access_key=<your
 
 ---
 
-# About API Testing Project with Postman & Newman
+# About API Testing Project Overview with Postman & Newman
 
 ## 📁 Project Setup
 
