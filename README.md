@@ -29,7 +29,7 @@ json-server --watch students.json --port 3000
 newman run Student_API_Test_Cases_work_flow.postman_collection.json --iteration-data students_id.csv
 ```
 
-> ⚠️ The students_id.csv file is only used in the Get Single Student request. However, all other requests in the collection will still execute and pass normally.
+> ⚠️ The students_id.csv file is only used in the Get Single Student data request. However, all other requests in the collection will still execute and pass normally.
 
 
 ### 6. **Run Collection Remotely via URL**
