@@ -239,7 +239,7 @@ newman run "https://api.postman.com/collections/<collection-id>?access_key=<your
 
 Anyone with the URL can:
 - View full docs
-- Click "Run in Postman" to import the collection
+- Click "Run in Postman" to import the collection into their local Postman tool
 - Access all pre-request and test scripts as they are
 
 ## 🙋‍♀️ Author
